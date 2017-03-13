@@ -19,9 +19,9 @@ public:
 
 	}
 };
-int main() {
-	LeetCode389 leetCode389;
-	cout << leetCode389.findTheDifference("ae", "aea") << endl;
-	system("PAUSE");
-	return 0;
-}
+//int main() {
+//	LeetCode389 leetCode389;
+//	cout << leetCode389.findTheDifference("ae", "aea") << endl;
+//	system("PAUSE");
+//	return 0;
+//}
