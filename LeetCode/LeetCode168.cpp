@@ -6,21 +6,35 @@ using namespace std;
 class LeetCode168 {
 public:
 	string convertToTitle(int n) {
-		vector<char> temp;
+		vector<int> temp;
 		char item;
-		while (n / 27 > 27) {
-			item = n % 27;
+		while (n / 26 != 0) {
+			item = n % 26;
+			n = n / 26;
 			temp.push_back(item);
 		}
-		vector<char>::iterator it;
-		for (it = temp.begin(); it != temp.end(); it++) {
-
+		item = n % 26;
+		temp.push_back(item);
+		vector<int>::reverse_iterator it;
+		string result;
+		int i = 0;
+		for (it = temp.rbegin(); it != temp.rend(); it++) {
+			if (*it == 0) {
+				result.push_back(num2ABC(26));
+			}
+			else {
+				result.push_back(num2ABC(*it));
+			}
 		}
+		return result;
+	}
+	char num2ABC(int n) {
+		return char(n + 64);
 	}
 };
-int main() {
-	LeetCode168 leetCode168;
-	cout << leetCode168.convertToTitle(4) << endl;
-	system("PAUSE");
-	return 0;
-}
+//int main() {
+//	LeetCode168 leetCode168;
+//	cout << leetCode168.convertToTitle(26) << endl;
+//	system("PAUSE");
+//	return 0;
+//}

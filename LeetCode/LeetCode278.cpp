@@ -34,9 +34,9 @@ public:
 		return center;
 	}
 };
-int main() {
-	LeetCode278 leetCode278;
-	cout << leetCode278.firstBadVersion(4) << endl;
-	system("PAUSE");
-	return 0;
-}
+//int main() {
+//	LeetCode278 leetCode278;
+//	cout << leetCode278.firstBadVersion(4) << endl;
+//	system("PAUSE");
+//	return 0;
+//}
