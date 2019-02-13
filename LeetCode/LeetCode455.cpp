@@ -26,17 +26,18 @@ public:
 		}
 		return result;
 	}
+    int test()
+    {
+        LeetCode455 leetCode455;
+        vector<int> g, s;
+        g.push_back(1);
+        g.push_back(2);
+        g.push_back(3);
+        s.push_back(1);
+        s.push_back(2);
+        s.push_back(3);
+        cout << leetCode455.findContentChildren(g, s) << endl;
+        system("PAUSE");
+        return 0;
+    }
 };
-//int main() {
-//	LeetCode455 leetCode455;
-//	vector<int> g, s;
-//	g.push_back(1);
-//	g.push_back(2);
-//	g.push_back(3);
-//	s.push_back(1);
-//	s.push_back(2);
-//	s.push_back(3);
-//	cout << leetCode455.findContentChildren(g, s) << endl;
-//	system("PAUSE");
-//	return 0;
-//}

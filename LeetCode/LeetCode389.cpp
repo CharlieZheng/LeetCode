@@ -1,8 +1,8 @@
-using namespace std;
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <iostream>
+using namespace std;
 class LeetCode389 {
 public:
 	char findTheDifference(string s, string t) {
@@ -16,12 +16,14 @@ public:
 				return t[i];
 			}
 		}
-
+        return '*';
 	}
 };
-//int main() {
-//	LeetCode389 leetCode389;
-//	cout << leetCode389.findTheDifference("ae", "aea") << endl;
-//	system("PAUSE");
-//	return 0;
-//}
+/*
+int main() {
+    LeetCode389 leetCode389;
+    cout << leetCode389.findTheDifference("ae", "aea") << endl;
+    system("PAUSE");
+    return 0;
+}
+*/

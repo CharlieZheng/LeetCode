@@ -1,7 +1,7 @@
-using namespace std;
 #include <vector>
 #include <string>
 #include <iostream>
+using namespace std;
 
 class LeetCode168 {
 public:
@@ -17,7 +17,6 @@ public:
 		temp.push_back(item);
 		vector<int>::reverse_iterator it;
 		string result;
-		int i = 0;
 		for (it = temp.rbegin(); it != temp.rend(); it++) {
 			if (*it == 0) {
 				result.push_back(num2ABC(26));
@@ -31,10 +30,10 @@ public:
 	char num2ABC(int n) {
 		return char(n + 64);
 	}
+    int test()
+    {
+        cout << convertToTitle(26) << endl;
+        system("PAUSE");
+        return 0;
+    }
 };
-//int main() {
-//	LeetCode168 leetCode168;
-//	cout << leetCode168.convertToTitle(26) << endl;
-//	system("PAUSE");
-//	return 0;
-//}
