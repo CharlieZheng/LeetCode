@@ -42,10 +42,19 @@ private:
         }
         else
         {
-            parent->right = NULL;
-            root->val = node->val;
-            node->right = NULL;
-            node = NULL;
+            if (mLeft)
+            {
+                parent->left = NULL;
+                root->val = node->val;
+                node = NULL;
+            }
+            else
+            {
+                parent->right = node->right;
+                root->val = node->val;
+                node->right = NULL;
+                node = NULL;
+            }
         }
     }
     void print(TreeNode *root)
