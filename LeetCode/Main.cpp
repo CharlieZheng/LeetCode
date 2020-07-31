@@ -7,9 +7,10 @@
 //
 
 #include <iostream>
-#include "_46.cpp"
-int main(int argc, const char * argv[]) {
-    _46 main;
+#include "LeetCode450.cpp"
+int main(int argc, const char *argv[])
+{
+    Solution main;
     main.test();
     return 0;
 }
