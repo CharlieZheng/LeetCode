@@ -51,16 +51,71 @@ private:
     void print(TreeNode *root)
     {
         if (root == NULL)
-            return;
-        if (root->left != NULL)
+            std::cout << "[]" << endl;
+        std::string result = "[";
+        vector<TreeNode *> arr;
+        arr.push_back(root);
+        while (!arr.empty())
         {
-            print(root->left);
+            int SIZE = arr.size();
+            int insert_index = 0;
+            while (SIZE > 0)
+            {
+                TreeNode *node = arr.back();
+                arr.pop_back();
+                SIZE--;
+                if (node != NULL)
+                {
+                    result.append(std::to_string(node->val));
+                    result.append(", ");
+                }
+                else
+                {
+                    result.append("null");
+                    result.append(", ");
+                }
+                if (node == NULL || (node->left == NULL && node->right == NULL))
+                {
+                    arr.insert(arr.begin(), NULL);
+                    arr.insert(arr.begin(), NULL);
+                }
+                else if (node->left != NULL)
+                {
+                    if (node->right == NULL)
+                    {
+                        arr.insert(arr.begin(), node->left);
+                        arr.insert(arr.begin(), NULL);
+                    }
+                    else
+                    {
+                        arr.insert(arr.begin(), node->left);
+                        arr.insert(arr.begin(), node->right);
+                    }
+                }
+                else
+                {
+                    arr.insert(arr.begin(), NULL);
+                    arr.insert(arr.begin(), node->right);
+                }
+            }
+            const int SIZE2 = arr.size();
+            bool all_null = true;
+            for (int i = 0; i < SIZE2; i++)
+            {
+                TreeNode *node = arr.at(i);
+                if (node != NULL)
+                {
+                    all_null = false;
+                    break;
+                }
+            }
+            if (all_null)
+            {
+                arr.clear();
+            }
         }
-        std::cout << root->val << ", ";
-        if (root->right != NULL)
-        {
-            print(root->right);
-        }
+        result.append("]");
+        std::cout << result << endl;
     }
 
 public:
@@ -179,3 +234,4 @@ public:
 // [1,0,15,null,null,4,35,3,8,25,49,2,null,5,12,22,27,47,null,null,null,null,7,11,13,19,24,26,31,40,48,6,null,9,null,null,14,17,21,23,null,null,null,30,33,39,42,null,null,null,null,null,10,null,null,16,18,20,null,null,null,28,null,32,34,36,null,41,44,null,null,null,null,null,null,null,null,null,29,null,null,null,null,null,37,null,null,43,46,null,null,null,38,null,null,45]
 // 22
 // [1,0,15,null,null,4,35,3,8,25,49,2,null,5,12,23,27,47,null,null,null,null,7,11,13,19,24,26,31,40,48,6,null,9,null,null,14,17,21,null,null,null,null,30,33,39,42,null,null,null,null,null,10,null,null,16,18,20,null,28,null,32,34,36,null,41,44,null,null,null,null,null,null,null,null,null,29,null,null,null,null,null,37,null,null,43,46,null,null,null,38,null,null,45]
+// [1,0,15,null,null,4,35,3,8,25,49,2,null,5,12,23,27,47,null,null,null,null,7,11,13,19,24,26,31,40,48,6,null,9,null,null,14,17,21,23,null,null,null,30,33,39,42,null,null,null,null,null,10,null,null,16,18,20,null,null,null,28,null,32,34,36,null,41,44,null,null,null,null,null,null,null,null,null,29,null,null,null,null,null,37,null,null,43,46,null,null,null,38,null,null,45]
