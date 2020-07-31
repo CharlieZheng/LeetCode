@@ -50,6 +50,8 @@ private:
     }
     void print(TreeNode *root)
     {
+        if (root == NULL)
+            return;
         if (root->left != NULL)
         {
             print(root->left);
@@ -64,8 +66,10 @@ private:
 public:
     TreeNode *deleteNode(TreeNode *root, int key)
     {
-        if (key == root->val)
+        if (root == NULL)
+        {
             return NULL;
+        }
         vector<TreeNode *> list;
         vector<bool> leftList;
         vector<TreeNode *> parentList;
@@ -99,8 +103,8 @@ public:
                 {
                     change(node, node->right);
                     return root;
-                    // 单子节点
                 }
+                // 单子节点
                 else if (node->left != NULL && node->right == NULL)
                 {
                     if (parent == NULL)
@@ -151,6 +155,7 @@ public:
                 return root;
             }
         }
+        return root;
     }
 
     int test()
@@ -171,3 +176,6 @@ public:
         return 0;
     }
 };
+// [1,0,15,null,null,4,35,3,8,25,49,2,null,5,12,22,27,47,null,null,null,null,7,11,13,19,24,26,31,40,48,6,null,9,null,null,14,17,21,23,null,null,null,30,33,39,42,null,null,null,null,null,10,null,null,16,18,20,null,null,null,28,null,32,34,36,null,41,44,null,null,null,null,null,null,null,null,null,29,null,null,null,null,null,37,null,null,43,46,null,null,null,38,null,null,45]
+// 22
+// [1,0,15,null,null,4,35,3,8,25,49,2,null,5,12,23,27,47,null,null,null,null,7,11,13,19,24,26,31,40,48,6,null,9,null,null,14,17,21,null,null,null,null,30,33,39,42,null,null,null,null,null,10,null,null,16,18,20,null,28,null,32,34,36,null,41,44,null,null,null,null,null,null,null,null,null,29,null,null,null,null,null,37,null,null,43,46,null,null,null,38,null,null,45]
